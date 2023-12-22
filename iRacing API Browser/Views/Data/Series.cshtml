@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Series Data";
+}
+@model Aydsko.iRacingData.Series.SeriesDetail[]
+
+<h1>@ViewData["Title"]</h1>
+
+@* Road Series *@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Road Series</th>
+            <th scope="col">Series Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var series in Model.Where(m => m.CategoryId == 2).OrderByDescending(m => m.AllowedLicenses.Count()))
+        {
+            <tr>
+                <td><a href="/Data/Series?seriesId=@series.SeriesId">@series.SeriesName</a></td>
+                <td>@series.SeriesId</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Oval Series *@
+<table class="table" style="margin-top: 5rem;">
+    <thead>
+        <tr>
+            <th scope="col">Oval Series</th>
+            <th scope="col">Series Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var series in Model.Where(m => m.CategoryId == 1).OrderByDescending(m => m.AllowedLicenses.Count()))
+        {
+            <tr>
+                <td><a href="/Data/Series?seriesId=@series.SeriesId">@series.SeriesName</a></td>
+                <td>@series.SeriesId</td>
+            </tr>
+        }
+    </tbody>
+</table>
