@@ -9,20 +9,18 @@
         <tr>
             <th scope="col">Make</th>
             <th scope="col">Model</th>
-            <th scope="col">Name</th>
-            <th scope="col">CarWeight</th>
-            <th scope="col">Hp</th>
+            <th scope="col">Car Weight</th>
+            <th scope="col">Horsepower</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var car in Model)
+        @foreach (var car in Model.OrderByDescending(m => m.Sku))
         {
             <tr>
                 <td>@car.CarMake</td>
                 <td>@car.CarModel</td>
-                <td>@car.CarName</td>
-                <td>@car.CarWeight</td>
-                <td>@car.Hp</td>
+                <td>@car.CarWeight lbs</td>
+                <td>@car.Hp HP</td>
             </tr>
         }
     </tbody>

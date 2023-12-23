@@ -1,6 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Tracks Data";
+    ViewData["Title"] = "Track Data";
 }
+@model Aydsko.iRacingData.Tracks.Track[]
+
 <h1>@ViewData["Title"]</h1>
 
-<p>Tracks info.</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var track in Model.Take(5))
+        {         
+            <tr>
+                <td>
+                    <a class="" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#@string.Concat("track", track.TrackId.ToString())" aria-expanded="false">
+                        @track.TrackName
+                    </a>
+                    <div class="collapse" id="@string.Concat("track", track.TrackId.ToString())">
+                        <div class="card card-body">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Configuration Name</th>
+                                        <th scope="col">Length (km)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@track.ConfigName</td>
+                                        <td>@track.TrackConfigLengthKm</td>
+                                    </tr>                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
