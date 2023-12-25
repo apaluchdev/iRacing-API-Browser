@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var track in Model.Take(5))
+        @foreach (var track in Model.GroupBy(p => p.TrackName).Select(group => group.First()).OrderBy(t => t.TrackName).ToList())
         {         
             <tr>
                 <td>
@@ -29,10 +29,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>@track.ConfigName</td>
-                                        <td>@track.TrackConfigLengthKm</td>
-                                    </tr>                                
+                                    @foreach (var config in Model.Where(m => m.TrackName == @track.TrackName))
+                                    {
+                                        <tr>
+                                            <td>@(string.IsNullOrWhiteSpace(config.ConfigName) ? config.TrackName : config.ConfigName)</td>
+                                            <td>@config.TrackConfigLengthKm km</td>
+                                        </tr>   
+                                    }
                                 </tbody>
                             </table>
                         </div>

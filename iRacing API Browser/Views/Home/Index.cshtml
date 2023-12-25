@@ -2,6 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">iRacing API Data Browser</h1>
+    <p>Simple web application created using ASP.NET Core to browse and display data from the iRacing API endpoints</a>.</p>
+    <div class="row align-items-start justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="/images/spa.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Tracks</h5>
+                <p class="card-text">View the oval and road tracks available on the iRacing service.</p>
+                <a href="/Data/Tracks" class="btn btn-primary">View Tracks</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/ferrari.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Cars</h5>
+                <p class="card-text">View the various cars available on the iRacing service.</p>
+                <a href="/Data/Cars" class="btn btn-primary">View Cars</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/porscheCup.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Series</h5>
+                <p class="card-text">View the series available to race in for this season of iRacing.</p>
+                <a href="/Data/Series" class="btn btn-primary">View Series</a>
+            </div>
+        </div>
+    </div>
 </div>
