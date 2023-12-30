@@ -1,8 +1,12 @@
 using Aydsko.iRacingData;
+using iRacing_API_Browser.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<iRacingContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
 builder.Services.AddIRacingDataApi(options =>
 {
