@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Cars Data";
 }
-@model Aydsko.iRacingData.Cars.CarInfo[]
+@model CarsViewModel
 
 <h1>@ViewData["Title"]</h1>
 <table class="table">
@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var car in Model.OrderByDescending(m => m.Sku))
+        @foreach (var car in Model.Cars.OrderByDescending(m => m.Sku))
         {
             <tr>
                 <td>@car.CarMake</td>
@@ -25,3 +25,8 @@
         }
     </tbody>
 </table>
+<form method="post" action="/Data/RateCar">
+    @Html.LabelFor(model => model.Rating)
+    @Html.TextBoxFor(model => model.Rating)
+    <button type="submit">Submit</button>
+</form>

@@ -1,4 +1,4 @@
-﻿namespace iRacing_API_Browser.Models
+﻿namespace iRacing_API_Browser.Data.Models
 {
     public class Car
     {

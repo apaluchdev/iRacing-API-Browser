@@ -1,4 +1,4 @@
-﻿using iRacing_API_Browser.Models;
+﻿using iRacing_API_Browser.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace iRacing_API_Browser.Data
